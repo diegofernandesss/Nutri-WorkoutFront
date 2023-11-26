@@ -11,8 +11,8 @@ export const ModalCardapio = ({ setShowAddModal, setCardapio, id2, cardapio }) =
             .string()
             .trim()
             .required("Campo obrigatório")
-            .matches(/^[A-Z].*$/, "O nome deve começar com letra maiúscula")
-            .matches(/(?=.{3})/, "O nome deve possuir no mínimo 3 caracteres"),
+            .matches(/^[A-Z].*$/, "O nome do cardápio deve começar com letra maiúscula")
+            .matches(/(?=.{3})/, "O nome do cardápio deve possuir no mínimo 3 caracteres"),
       });
 
     const notifyError = (error) => toast.error(error.response.data.descricao);
