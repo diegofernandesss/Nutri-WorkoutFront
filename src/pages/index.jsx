@@ -1,6 +1,8 @@
 export * from './atleta/Cadastro';
 
 export * from './administrador/listagemUsuariosCad/ListagemUser';
+
+export * from './personal/MudarSenhaPersonal';
 export * from './personal/CadastroPersonal';
 
 export * from './nutricionista/CadastroNutricionista';

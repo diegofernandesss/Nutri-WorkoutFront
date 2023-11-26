@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Cadastro, ListagemUser, CadastroPersonal, CadastroNutricionista, Login, LandingPage, MudarSenhaAdmin, MudarSenhaAtleta, Dashboards, MudarSenhaNutricionista, Home, Cardapio } from "../pages";
+import { Cadastro, ListagemUser, CadastroPersonal, CadastroNutricionista, Login, LandingPage, MudarSenhaAdmin, MudarSenhaAtleta, Dashboards, MudarSenhaNutricionista, Home, Cardapio, MudarSenhaPersonal } from "../pages";
 import { PrivateRoute } from "./privateRoutes";
 
 export default function MainRouters() {
@@ -31,7 +31,10 @@ export default function MainRouters() {
         </Route>
 
         {/** Rotas dos Personais Privados */}
-        <Route path="/personalTrainer/:id" element={<PrivateRoute panelType="3" />} />
+        <Route path="/personalTrainer/:id" element={<PrivateRoute panelType="3" />} >
+          <Route path="mudarSenha" element={<MudarSenhaPersonal />} />
+        </Route>
+
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

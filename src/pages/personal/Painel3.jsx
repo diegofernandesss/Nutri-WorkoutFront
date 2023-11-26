@@ -5,9 +5,11 @@ import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
 import { AuthContext } from "../../Context/Auth";
 import { toast, ToastContainer } from 'react-toastify';
+import { Outlet, useNavigate} from "react-router-dom";
 
 export const Painel3 = () => {
     const { signOut } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const { id } = useParams();
 
@@ -82,7 +84,7 @@ export const Painel3 = () => {
                     </a>
                 </li>
                 <li className="mb-1 group">
-                    <a href="#" className="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                    <a href="#" onClick={() => navigate("mudarSenha")}  className="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
                         <BiLock className="mr-3 text-lg" />
                         <span className="text-sm font-semibold">Senha</span>
                     </a>
@@ -184,6 +186,9 @@ export const Painel3 = () => {
                         )}
                     </li>
                 </ul>
+            </div>
+            <div className="p-6">
+                <Outlet />
             </div>
         </main>
 
