@@ -1,12 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Cadastro, ListagemUser, CadastroPersonal, CadastroNutricionista, Login, LandingPage, MudarSenhaAdmin, MudarSenhaAtleta, Dashboards, MudarSenhaNutricionista, Home, Cardapio, MudarSenhaPersonal } from "../pages";
 import { PrivateRoute } from "./privateRoutes";
+import { CreditCardForm } from "../pages/checkout/CreditCardForm";
 
 export default function MainRouters() {
     return (
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/atleta/cadastro" element={<Cadastro />} />
+        <Route path="/cartaoCredito" element={<CreditCardForm />} />
         
         {/** Rotas dos Administradores Privados */}
         <Route path="/admin/:id" element={<PrivateRoute panelType="0" />} >
