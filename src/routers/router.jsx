@@ -7,7 +7,7 @@ export default function MainRouters() {
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/atleta/cadastro" element={<Cadastro />} />
-
+        
         {/** Rotas dos Administradores Privados */}
         <Route path="/admin/:id" element={<PrivateRoute panelType="0" />} >
           <Route path="lista/usuarios" element={<ListagemUser />} />
