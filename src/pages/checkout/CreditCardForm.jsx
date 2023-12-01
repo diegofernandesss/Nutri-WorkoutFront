@@ -2,7 +2,10 @@ import { useState } from "react";
 import Cards from 'react-credit-cards';
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import 'react-credit-cards/es/styles-compiled.css';
-
+import { api } from "../../services/api";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate, useLocation } from "react-router-dom";
 const CARD_ELEMENT_OPTIONS = {
   hidePostalCode: true,
 }
@@ -10,6 +13,14 @@ const CARD_ELEMENT_OPTIONS = {
 export const CreditCardForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+
+  const notifyError = (error) => toast.error(error.response.data.descricao);
+  const notifySuccess = () => toast.success("Cartão cadastrado");
+  
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const { idPlano } = location.state
 
   const [cardInfo, setCardInfo] = useState({
     cardHolder: '',
@@ -33,14 +44,12 @@ export const CreditCardForm = () => {
       return;
     }
 
-    const cardElement = elements.getElement(CardElement, {name: cardInfo.cardHolder});
-
-    if (cardElement) {
-      const {error, token} = await stripe.createToken(cardElement);
-      console.log(token);
-    } else {
-      console.log("CardElement not found");
-    }
+    const cardElement = elements.getElement(CardElement);
+    const {error, token} = await stripe.createToken(cardElement, {name: cardInfo.cardHolder});
+      
+    await api.post(`cartaoCredito`, {token: token.id})
+    .then((resp) => navigate(`/assinatura`, {state: {idCartao: resp.data.id, idPlano }}))
+    .catch((error) => console.log(error))
   }
 
   return (
