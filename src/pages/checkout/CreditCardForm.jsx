@@ -6,6 +6,7 @@ import { api } from "../../services/api";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useLocation } from "react-router-dom";
+
 const CARD_ELEMENT_OPTIONS = {
   hidePostalCode: true,
 }
