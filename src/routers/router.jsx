@@ -1,12 +1,16 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Cadastro, ListagemUser, CadastroPersonal, CadastroNutricionista, Login, LandingPage, MudarSenhaAdmin, MudarSenhaAtleta, Dashboards, MudarSenhaNutricionista, Home, Cardapio, MudarSenhaPersonal } from "../pages";
 import { PrivateRoute } from "./privateRoutes";
+import { CreditCardForm } from "../pages/checkout/CreditCardForm";
+import { CheckoutAssinatura } from "../pages/checkout/CheckoutAssinatura";
 
 export default function MainRouters() {
     return (
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
         <Route path="/atleta/cadastro" element={<Cadastro />} />
+        <Route path="/cadastroCartao" element={<CreditCardForm />} />
+        <Route path="/assinatura" element={<CheckoutAssinatura />} />
         
         {/** Rotas dos Administradores Privados */}
         <Route path="/admin/:id" element={<PrivateRoute panelType="0" />} >
@@ -36,7 +40,7 @@ export default function MainRouters() {
         </Route>
 
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     );
   }

@@ -5,8 +5,8 @@ export const PaymentSession = () => {
 
     const navigate = useNavigate();
 
-    const handleClickSubscription = () => {
-        navigate("/atleta/cadastro");
+    const handleClickSubscription = (idPlano) => {
+        navigate("/atleta/cadastro", {state: { idPlano }});
         window.scrollTo(0, 0);
     }
     return (
@@ -57,7 +57,7 @@ export const PaymentSession = () => {
                         <span className="ml-3">Plano de cardio (se necessário)</span>
                     </li>
                 </ul>
-                <button  className="flex items-center justify-center w-full mt-8  bg-violet-50 px-6 py-4 text-violet-700 hover:bg-violet-100 text-sm font-semibold leading-4 text-center shadow-md rounded-lg" onClick={handleClickSubscription}>Assine Agora</button>
+                <button  className="flex items-center justify-center w-full mt-8  bg-violet-50 px-6 py-4 text-violet-700 hover:bg-violet-100 text-sm font-semibold leading-4 text-center shadow-md rounded-lg" onClick={() => handleClickSubscription(1)}>Assine Agora</button>
                 {/* <a href="#" className="mt-8 block bg-violet-50 px-6 py-4 text-violet-700 hover:bg-violet-100 text-sm font-semibold leading-4 text-center shadow-md rounded-lg">
                     Assine Agora
                 </a> */}
@@ -97,7 +97,7 @@ export const PaymentSession = () => {
                         <span className="ml-3">Acompanhamento do progresso em relação à composição corporal e condicionamento físico</span>
                     </li>
                 </ul>
-                <button  className="flex items-center justify-center w-full mt-8 bg-violet-500 px-6 py-4 text-white hover:bg-violet-600 text-sm font-semibold leading-4 text-center shadow-md rounded-lg" onClick={handleClickSubscription}>Assine Agora</button>
+                <button  className="flex items-center justify-center w-full mt-8 bg-violet-500 px-6 py-4 text-white hover:bg-violet-600 text-sm font-semibold leading-4 text-center shadow-md rounded-lg" onClick={() => handleClickSubscription(2)}>Assine Agora</button>
                 {/* <a href="#" className="mt-8 block bg-violet-500 px-6 py-4 text-white hover:bg-violet-600 text-sm font-semibold leading-4 text-center shadow-md rounded-lg">
                     Assine Agora
                 </a> */}
@@ -140,7 +140,7 @@ export const PaymentSession = () => {
 
                 {/** Call to action */}
 
-                <button  className="flex items-center justify-center w-full mt-8  bg-violet-50 px-6 py-4 text-violet-700 hover:bg-violet-100 text-sm font-semibold leading-4 text-center shadow-md rounded-lg" onClick={handleClickSubscription}>Assine Agora</button>
+                <button  className="flex items-center justify-center w-full mt-8  bg-violet-50 px-6 py-4 text-violet-700 hover:bg-violet-100 text-sm font-semibold leading-4 text-center shadow-md rounded-lg" onClick={() => handleClickSubscription(3)}>Assine Agora</button>
                 
             </div>
 
