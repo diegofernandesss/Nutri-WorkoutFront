@@ -78,7 +78,7 @@ export const Painel3 = () => {
             </a>
             <ul className="mt-4">
                 <li className="mb-1 group active">
-                    <a href="#" className="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
+                    <a href="#" onClick={() => navigate("")} className="flex items-center py-2 px-4 text-gray-300 hover:bg-gray-700 hover:text-gray-100 rounded-md group-[.active]:bg-gray-800 group-[.active]:text-white">
                         <BiHomeAlt2 className="mr-3 text-lg" />
                         <span className="text-sm font-semibold">Painel Admin</span>
                     </a>
@@ -99,7 +99,7 @@ export const Painel3 = () => {
                 </button>
                 <ul className="flex items-center ml-4">
                     <li className="mr-2">
-                        <a href="#" className="text-white hover:text-gray-200 font-medium">Painel</a>
+                        <button href="#" className="text-white hover:text-gray-200 font-medium" onClick={() => navigate(`/personalTrainer/${localStorage.getItem("@Auth:user_id")}`)}>Painel</button>
                     </li>
                     <li className="text-white mr-2 font-medium">/</li>
                     <li className="text-gray-300 mr-2 font-medium">Análise</li>
