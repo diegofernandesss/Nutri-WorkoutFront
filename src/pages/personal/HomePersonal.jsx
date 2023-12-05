@@ -96,7 +96,7 @@ export const HomePersonal = () => {
                   </div>
               </td>
               <td className="px-2 py-4">
-                      <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 py-2 text-sm  focus:border-green-700" onClick={() => navigate(`cardapio/${atleta.id}/${atleta.nome}`)}>Tabela de treino</button>
+                      <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 py-2 text-sm  focus:border-green-700" onClick={() => navigate(`tabelaTreino/${atleta.id}`)}>Tabela de treino</button>
             </td>
         </tr>
             ))}
